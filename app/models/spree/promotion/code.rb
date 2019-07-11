@@ -8,7 +8,7 @@ module Spree
     end
 
     validates :code, presence: true
-    validates :user, uniqueness: { scope: :promotion_id }, allow_blank: :true
+    validates :user, uniqueness: { scope: [:promotion_id, :code] }, allow_blank: :true
     validate :code_uniqueness
 
     private
